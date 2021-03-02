@@ -1,9 +1,21 @@
 # 菜头云
 
-简单的前端部署
+菜头云 (https://caitouyun.com) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务
 
-- [提交问题](https://github.com/caitouyun/docs/issues)
-- [前往讨论](https://github.com/caitouyun/docs/discussions)
+- [如果在使用中遇到问题请前往提交 issue](https://github.com/caitouyun/docs/issues)
+- [相关功能讨论请点击前往讨论区](https://github.com/caitouyun/docs/discussions)
+
+# 目录
+
+- [安装](#安装)
+- [账号](#账号)
+- [部署](#部署)
+  - [生产环境](#生产环境)
+  - [使用 caitou\.yml](#使用-caitouyml)
+  - [自定义域名](#自定义域名)
+  - [自动跳转 https](#自动跳转-https)
+  - [集成环境](#集成环境)
+  - [Github Actions](#github-actions)
 
 ## 安装
 
