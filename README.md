@@ -59,7 +59,7 @@ caitou deploy --site demo --public www
   - 海外服务器地址, 可以直接访问
 - 可以看到这次部署的子域名为 `demo-5c4992f8`，由网站 id 和一串唯一的字符串组成，代表了这次部署的链接
 
-你可以修改本地文件之后重新运行 `caitou deploy --site www --public www` 来获得最新版本的预览链接
+你可以修改本地文件之后重新运行 `caitou deploy --site demo --public www` 来获得最新版本的预览链接
 
 ### 生产环境
 
