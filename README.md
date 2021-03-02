@@ -19,6 +19,8 @@ caitou login
 
 ## 部署
 
+我们部署的项目在 [caitouyun/demo](https://github.com/caitouyun/demo)
+
 我们假设当前目录为 demo,要部署的目录为 www, www 中包含了要部署的静态网站, 我们在 demo 目录中运行:
 
 ```sh
