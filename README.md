@@ -124,6 +124,8 @@ force_ssl: true
 caitou deploy --git
 ```
 
+我们以 Github Action 为例，如果你有其他平台的集成，请在讨论区中提出，我们会添加到文档中
+
 ### Github Actions
 
 我们推荐使用官方的 [菜头云 Github Action](https://github.com/caitouyun/action)，
@@ -138,10 +140,10 @@ caitou token
 
 ![](assets/github-caitou-token.png)
 
-创建目录 `.github/workflows` 并添加一个 yaml 文件
+创建目录 `.github/workflows` 并添加一个 `caitouyun.yaml` 文件
 
 ```yaml
-name: CI
+name: caitouyun
 on:
   push:
     branches: [master]
@@ -157,4 +159,4 @@ jobs:
           CAITOU_TOKEN: ${{ secrets.CAITOU_TOKEN }}
 ```
 
-如果需要其他的步骤，比如`npm install`也可以在部署之前添加
+如果需要其他的步骤，比如`npm install`也可以在部署之前添加，更多配置可以查看 [Github Action 官方文档](https://docs.github.com/actions) 或在讨论区中询问
