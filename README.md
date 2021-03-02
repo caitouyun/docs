@@ -48,7 +48,7 @@ caitou whoami
 我们假设当前目录为 demo,要部署的目录为 www, www 中包含了要部署的静态网站, 我们在 demo 目录中运行:
 
 ```sh
-caitou deploy --site www --public www
+caitou deploy --site demo --public www
 ```
 
 会将目录文件上传后，返回两个网站预览地址
@@ -66,7 +66,7 @@ caitou deploy --site www --public www
 如果需要部署生产环境，可以运行
 
 ```sh
-caitou deploy --site www --public www --production
+caitou deploy --site demo --public www --production
 ```
 
 将会将本地当前版本部署到
