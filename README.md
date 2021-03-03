@@ -2,6 +2,7 @@
 
 菜头云 (https://caitouyun.com) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务
 
+- [编辑文档请点击](https://github.com/caitouyun/docs/edit/master/README.md)
 - [如果在使用中遇到问题请前往提交 issue](https://github.com/caitouyun/docs/issues)
 - [相关功能讨论请点击前往讨论区](https://github.com/caitouyun/docs/discussions)
 
