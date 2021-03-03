@@ -43,12 +43,23 @@ caitou whoami
 
 ## 部署
 
+### 网站名
+
+- 每个菜头云网站都有唯一的网站名
+- 网站名只能包括数字和字母以及`-`
+- 网站在部署的时候会自动创建，如果是别人已经使用的网站名会返回部署失败
+- 比如 demo 这个网站的生产环境将自动部署到以下子域名
+  - 海外生产环境 https://demo.caitou.org
+  - 大陆生产环境 https://demo.caitouyun.com
+
+### 预览环境
+
 我们部署的项目在 [caitouyun/demo](https://github.com/caitouyun/demo)
 
 我们假设当前目录为 demo,要部署的目录为 www, www 中包含了要部署的静态网站, 我们在 demo 目录中运行:
 
 ```sh
-caitou deploy --site demo --public www
+caitou deploy --site demo --public www # 需要将demo替换为你自己选择的网站名
 ```
 
 会将目录文件上传后，返回两个网站预览地址
