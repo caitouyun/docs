@@ -165,7 +165,7 @@ caitou token
 
 将终端输出的 token 作为`CAITOU_TOKEN`变量复制到 github 项目中
 
-![](assets/github-caitou-token.png)
+![](public/github-caitou-token.png)
 
 创建目录 `.github/workflows` 并添加一个 `caitouyun.yaml` 文件
 

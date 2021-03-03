@@ -1,0 +1,11 @@
+{
+  "name": "docs",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:caitouyun/docs.git",
+  "author": "Wang Zuo <wangzuo@swiftcarrot.com> (https://swiftcarrot.com)",
+  "private": true,
+  "dependencies": {
+    "@octokit/core": "^3.2.5"
+  }
+}
