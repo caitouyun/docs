@@ -5,17 +5,21 @@
 - [如果在使用中遇到问题请前往提交 issue](https://github.com/caitouyun/docs/issues)
 - [相关功能讨论请点击前往讨论区](https://github.com/caitouyun/docs/discussions)
 
-# 目录
+## 目录
 
 - [安装](#安装)
-- [账号](#账号)
+- [账号登录](#账号登录)
 - [部署](#部署)
+  - [网站名](#网站名)
+  - [预览环境](#预览环境)
   - [生产环境](#生产环境)
   - [使用 caitou\.yml](#使用-caitouyml)
   - [自定义域名](#自定义域名)
   - [自动跳转 https](#自动跳转-https)
+  - [单页面应用 (Single Page Application)](#单页面应用-single-page-application)
   - [集成环境](#集成环境)
   - [Github Actions](#github-actions)
+- [常见问题 FAQ](#常见问题-faq)
 
 ## 安装
 
@@ -127,6 +131,18 @@ public: www
 force_ssl: true
 ```
 
+### 单页面应用 (Single Page Application)
+
+菜头云支持自定义路由规则，可以很方面的支持单页面应用(Single Page Application),在`caitou.yml`中添加以下`rewrites`规则就可以将请求重写到 `/index.html` 来指出前端单页面应用
+
+```yaml
+rewrites:
+  - source: '**'
+    destination: /index.html
+```
+
+详细的 `rewrites` 文档正在补充中...
+
 ### 集成环境
 
 将`caitou` 集成到现有的`git`集成部署环境中也是非常简单，使用 `caitou deploy --git` 会自动读取本地或者环境中的 git 信息来判断是预览环境还是生产环境，我们目前默认 `master` 的部署为生产环境部署
@@ -171,3 +187,5 @@ jobs:
 ```
 
 如果需要其他的步骤，比如`npm install`也可以在部署之前添加，更多配置可以查看 [Github Action 官方文档](https://docs.github.com/actions) 或在讨论区中询问
+
+## 常见问题 FAQ
