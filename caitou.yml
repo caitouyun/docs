@@ -1,3 +1,6 @@
 site: www
 public: public
 force_ssl: true
+domains:
+  china: caitouyun.com
+  global: caitou.org
