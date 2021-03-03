@@ -2,6 +2,7 @@
 
 菜头云 (https://caitouyun.com) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务
 
+- [通过邮箱直接联系我们](mailto:contact@swiftcarrot.com)
 - [编辑文档请点击](https://github.com/caitouyun/docs/edit/master/README.md)
 - [如果在使用中遇到问题请前往提交 issue](https://github.com/caitouyun/docs/issues)
 - [相关功能讨论请点击前往讨论区](https://github.com/caitouyun/docs/discussions)
@@ -21,6 +22,12 @@
   - [集成环境](#集成环境)
   - [Github Actions](#github-actions)
 - [常见问题 FAQ](#常见问题-faq)
+  - [我需要付费吗？有什么限制?](#我需要付费吗有什么限制)
+  - [有没有网页控制面板可以查看部署记录](#有没有网页控制面板可以查看部署记录)
+  - [有没有团队功能](#有没有团队功能)
+  - [能不能自定义 SSL 证书](#能不能自定义-ssl-证书)
+  - [CDN 使用](#cdn-使用)
+  - [如何支持不带子域名的自定义域名 (Apex Domain)?](#如何支持不带子域名的自定义域名-apex-domain)
 
 ## 安装
 
@@ -190,3 +197,27 @@ jobs:
 如果需要其他的步骤，比如`npm install`也可以在部署之前添加，更多配置可以查看 [Github Action 官方文档](https://docs.github.com/actions) 或在讨论区中询问
 
 ## 常见问题 FAQ
+
+### 我需要付费吗？有什么限制?
+
+我们目前正在测试中
+
+### 有没有网页控制面板可以查看部署记录
+
+网页版 https://app.caitouyun.com 正在测试中，我们会尽快开始邀请
+
+### 有没有团队功能
+
+请联系我们
+
+### 能不能自定义 SSL 证书
+
+目前没有，请联系我们
+
+### CDN 使用
+
+现在依旧可以通过我们的子域名对接到 CDN，我们之后会自动进行 CDN 的集成
+
+### 如何支持不带子域名的自定义域名 (Apex Domain)?
+
+目前我们没有提供这方面的验证功能，但是可以联系我们帮助添加
