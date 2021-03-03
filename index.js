@@ -25,6 +25,14 @@ octokit.request('POST /markdown', { text }).then((resp) => {
 <main class="markdown-body">
 ${resp.data}
 </main>
+<footer class="markdown-body">${`Copyright © ${new Date().getFullYear()}. 使用菜头云托管.
+        <a href="https://beian.miit.gov.cn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              粤ICP备20013360号-1
+            </a>
+      `}</footer>
 </body>
 </html>`;
 

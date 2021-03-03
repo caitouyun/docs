@@ -1,3 +1,10 @@
+footer {
+  font-size: 12px;
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
 .markdown-body .octicon {
   display: inline-block;
   fill: currentColor;
