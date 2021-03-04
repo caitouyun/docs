@@ -2,33 +2,42 @@
 
 菜头云 (https://caitouyun.com) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务
 
+- 一个命令上线网站
+- 多版本线上预览, 支持 git 集成
+- 自动配置 HTTPS 证书
+- 中国大陆和海外两个节点部署
+
+## 目录
+
+- [联系反馈](#联系反馈)
+- [安装命令行工具](#安装命令行工具)
+- [命令行登录](#命令行登录)
+- [网站部署](#网站部署)
+  - [网站名](#网站名)
+  - [网站链接结构](#网站链接结构)
+  - [预览环境](#预览环境)
+  - [生产环境](#生产环境)
+  - [使用 caitou\.yml](#使用-caitouyml)
+  - [自定义域名](#自定义域名)
+  - [自动跳转 https](#自动跳转-https)
+  - [单页面应用 (Single Page Application)](#单页面应用-single-page-application)
+  - [集成环境](#集成环境)
+  - [Github Actions](#github-actions)
+- [常见问题 FAQ](#常见问题-faq)
+  - [我需要付费吗？有什么限制?](#我需要付费吗有什么限制)
+  - [有没有网页控制面板可以查看部署记录](#有没有网页控制面板可以查看部署记录)
+  - [有没有团队功能](#有没有团队功能)
+  - [能不能自定义 SSL 证书](#能不能自定义-ssl-证书)
+  - [CDN 使用](#cdn-使用)
+  - [如何支持不带子域名的自定义域名 (Apex Domain)?](#如何支持不带子域名的自定义域名-apex-domain)
+  - [菜头云和 Github pages 有什么区别](#菜头云和-github-pages-有什么区别)
+
+## 联系反馈
+
 - [通过邮箱直接联系我们](mailto:contact@swiftcarrot.com)
 - [编辑文档请点击](https://github.com/caitouyun/docs/edit/master/README.md)
 - [如果在使用中遇到问题请前往提交 issue](https://github.com/caitouyun/docs/issues)
 - [相关功能讨论请点击前往讨论区](https://github.com/caitouyun/docs/discussions)
-
-## 目录
-
-- [安装命令行工具](#安装命令行工具)
-  - [命令行登录](#命令行登录)
-  - [网站部署](#网站部署)
-    - [网站名](#网站名)
-    - [预览环境](#预览环境)
-    - [生产环境](#生产环境)
-    - [使用 caitou\.yml](#使用-caitouyml)
-    - [自定义域名](#自定义域名)
-    - [自动跳转 https](#自动跳转-https)
-    - [单页面应用 (Single Page Application)](#单页面应用-single-page-application)
-    - [集成环境](#集成环境)
-    - [Github Actions](#github-actions)
-  - [常见问题 FAQ](#常见问题-faq)
-    - [我需要付费吗？有什么限制?](#我需要付费吗有什么限制)
-    - [有没有网页控制面板可以查看部署记录](#有没有网页控制面板可以查看部署记录)
-    - [有没有团队功能](#有没有团队功能)
-    - [能不能自定义 SSL 证书](#能不能自定义-ssl-证书)
-    - [CDN 使用](#cdn-使用)
-    - [如何支持不带子域名的自定义域名 (Apex Domain)?](#如何支持不带子域名的自定义域名-apex-domain)
-    - [菜头云和 Github pages 有什么区别](#菜头云和-github-pages-有什么区别)
 
 ## 安装命令行工具
 
@@ -38,7 +47,7 @@
 curl -sf https://cli.caitouyun.com/install.sh | sh
 ```
 
-安装成功后运行 `caitou version` 会显示当前的运行版本，表明安装成功
+安装成功后运行 `caitou version` 输出当前版本则表明安装成功
 
 ## 命令行登录
 
@@ -65,9 +74,22 @@ caitou whoami
 - 每个菜头云网站都有唯一的网站名
 - 网站名只能包括数字和小写字母
 - 网站在部署的时候会自动创建，如果是别人已经使用的网站名会返回部署失败
-- 比如 demo 这个网站的生产环境将自动部署到以下子域名
-  - 海外生产环境 https://demo.caitou.org
-  - 大陆生产环境 https://demo.caitouyun.com
+
+### 网站链接结构
+
+我们已 demo 这个网站名为例，在菜头云上包括以下几种链接结构
+
+- 唯一的生产环境链接
+  - 中国大陆 https://demo.caitouyun.com
+  - 海外 https://demo.caitou.org
+- 每次部署产生的预览链接
+  - 中国大陆 https://demo-5c4992f8.caitouyun.com
+  - 海外 https://demo-5c4992f8.caitou.org
+- 使用 git 分支配置生成的分支预览链接 (以 dev 为例)
+  - 中国大陆 https://demo-git-dev.caitouyun.com
+  - 海外 https://demo-git-dev.caitou.org
+
+接下来我们会介绍如何部署生成这些线上链接以及如何绑定自定义域名到生成环境
 
 ### 预览环境
 

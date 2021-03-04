@@ -15,22 +15,22 @@
 <a id="user-content-菜头云" class="anchor" href="#%E8%8F%9C%E5%A4%B4%E4%BA%91" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>菜头云</h1>
 <p>菜头云 (<a href="https://caitouyun.com" rel="nofollow">https://caitouyun.com</a>) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务</p>
 <ul>
-<li><a href="mailto:contact@swiftcarrot.com">通过邮箱直接联系我们</a></li>
-<li><a href="https://github.com/caitouyun/docs/edit/master/README.md">编辑文档请点击</a></li>
-<li><a href="https://github.com/caitouyun/docs/issues">如果在使用中遇到问题请前往提交 issue</a></li>
-<li><a href="https://github.com/caitouyun/docs/discussions">相关功能讨论请点击前往讨论区</a></li>
+<li>一个命令上线网站</li>
+<li>多版本线上预览, 支持 git 集成</li>
+<li>自动配置 HTTPS 证书</li>
+<li>中国大陆和海外两个节点部署</li>
 </ul>
 <h2>
 <a id="user-content-目录" class="anchor" href="#%E7%9B%AE%E5%BD%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>目录</h2>
 <ul>
-<li>
-<a href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7">安装命令行工具</a>
-<ul>
+<li><a href="#%E8%81%94%E7%B3%BB%E5%8F%8D%E9%A6%88">联系反馈</a></li>
+<li><a href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7">安装命令行工具</a></li>
 <li><a href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%99%BB%E5%BD%95">命令行登录</a></li>
 <li>
 <a href="#%E7%BD%91%E7%AB%99%E9%83%A8%E7%BD%B2">网站部署</a>
 <ul>
 <li><a href="#%E7%BD%91%E7%AB%99%E5%90%8D">网站名</a></li>
+<li><a href="#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5%E7%BB%93%E6%9E%84">网站链接结构</a></li>
 <li><a href="#%E9%A2%84%E8%A7%88%E7%8E%AF%E5%A2%83">预览环境</a></li>
 <li><a href="#%E7%94%9F%E4%BA%A7%E7%8E%AF%E5%A2%83">生产环境</a></li>
 <li><a href="#%E4%BD%BF%E7%94%A8-caitouyml">使用 caitou.yml</a></li>
@@ -54,13 +54,19 @@
 </ul>
 </li>
 </ul>
-</li>
+<h2>
+<a id="user-content-联系反馈" class="anchor" href="#%E8%81%94%E7%B3%BB%E5%8F%8D%E9%A6%88" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>联系反馈</h2>
+<ul>
+<li><a href="mailto:contact@swiftcarrot.com">通过邮箱直接联系我们</a></li>
+<li><a href="https://github.com/caitouyun/docs/edit/master/README.md">编辑文档请点击</a></li>
+<li><a href="https://github.com/caitouyun/docs/issues">如果在使用中遇到问题请前往提交 issue</a></li>
+<li><a href="https://github.com/caitouyun/docs/discussions">相关功能讨论请点击前往讨论区</a></li>
 </ul>
 <h2>
 <a id="user-content-安装命令行工具" class="anchor" href="#%E5%AE%89%E8%A3%85%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>安装命令行工具</h2>
 <p>在终端中运行以下命令安装</p>
 <div class="highlight highlight-source-shell"><pre>curl -sf https://cli.caitouyun.com/install.sh <span class="pl-k">|</span> sh</pre></div>
-<p>安装成功后运行 <code>caitou version</code> 会显示当前的运行版本，表明安装成功</p>
+<p>安装成功后运行 <code>caitou version</code> 输出当前版本则表明安装成功</p>
 <h2>
 <a id="user-content-命令行登录" class="anchor" href="#%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%99%BB%E5%BD%95" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>命令行登录</h2>
 <p>使用菜头云部署需要一个账号，运行</p>
@@ -77,15 +83,37 @@
 <li>每个菜头云网站都有唯一的网站名</li>
 <li>网站名只能包括数字和小写字母</li>
 <li>网站在部署的时候会自动创建，如果是别人已经使用的网站名会返回部署失败</li>
-<li>比如 demo 这个网站的生产环境将自动部署到以下子域名
+</ul>
+<h3>
+<a id="user-content-网站链接结构" class="anchor" href="#%E7%BD%91%E7%AB%99%E9%93%BE%E6%8E%A5%E7%BB%93%E6%9E%84" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>网站链接结构</h3>
+<p>我们已 demo 这个网站名为例，在菜头云上包括以下几种链接结构</p>
 <ul>
-<li>海外生产环境 <a href="https://demo.caitou.org" rel="nofollow">https://demo.caitou.org</a>
+<li>唯一的生产环境链接
+<ul>
+<li>中国大陆 <a href="https://demo.caitouyun.com" rel="nofollow">https://demo.caitouyun.com</a>
 </li>
-<li>大陆生产环境 <a href="https://demo.caitouyun.com" rel="nofollow">https://demo.caitouyun.com</a>
+<li>海外 <a href="https://demo.caitou.org" rel="nofollow">https://demo.caitou.org</a>
+</li>
+</ul>
+</li>
+<li>每次部署产生的预览链接
+<ul>
+<li>中国大陆 <a href="https://demo-5c4992f8.caitouyun.com" rel="nofollow">https://demo-5c4992f8.caitouyun.com</a>
+</li>
+<li>海外 <a href="https://demo-5c4992f8.caitou.org" rel="nofollow">https://demo-5c4992f8.caitou.org</a>
+</li>
+</ul>
+</li>
+<li>使用 git 分支配置生成的分支预览链接 (以 dev 为例)
+<ul>
+<li>中国大陆 <a href="https://demo-git-dev.caitouyun.com" rel="nofollow">https://demo-git-dev.caitouyun.com</a>
+</li>
+<li>海外 <a href="https://demo-git-dev.caitou.org" rel="nofollow">https://demo-git-dev.caitou.org</a>
 </li>
 </ul>
 </li>
 </ul>
+<p>接下来我们会介绍如何部署生成这些线上链接以及如何绑定自定义域名到生成环境</p>
 <h3>
 <a id="user-content-预览环境" class="anchor" href="#%E9%A2%84%E8%A7%88%E7%8E%AF%E5%A2%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>预览环境</h3>
 <p>我们部署的项目在 <a href="https://github.com/caitouyun/demo">caitouyun/demo</a></p>
