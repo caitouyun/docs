@@ -158,10 +158,18 @@ rewrites:
 
 ### 集成环境
 
-将`caitou` 集成到现有的`git`集成部署环境中也是非常简单，使用 `caitou deploy --git` 会自动读取本地或者环境中的 git 信息来判断是预览环境还是生产环境，我们目前默认 `master` 的部署为生产环境部署
+将`caitou` 集成到现有的`git`集成部署环境中也是非常简单，使用 `caitou deploy --git` 会自动读取本地或者环境中的 git 信息来判断是预览环境还是生产环境，我们目前默认 `main` 的部署为生产环境部署
 
 ```sh
 caitou deploy --git
+```
+
+如果需要修改默认 `main`的可以在`caitou.yml`中定义
+
+```yaml
+site: demo
+production_branch: master
+public: www
 ```
 
 我们以 Github Action 为例，如果你有其他平台的集成，请在讨论区中提出，我们会添加到文档中
@@ -186,7 +194,7 @@ caitou token
 name: caitouyun
 on:
   push:
-    branches: [master]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest

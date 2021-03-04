@@ -153,8 +153,12 @@
 <p>详细的 <code>rewrites</code> 文档正在补充中...</p>
 <h3>
 <a id="user-content-集成环境" class="anchor" href="#%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>集成环境</h3>
-<p>将<code>caitou</code> 集成到现有的<code>git</code>集成部署环境中也是非常简单，使用 <code>caitou deploy --git</code> 会自动读取本地或者环境中的 git 信息来判断是预览环境还是生产环境，我们目前默认 <code>master</code> 的部署为生产环境部署</p>
+<p>将<code>caitou</code> 集成到现有的<code>git</code>集成部署环境中也是非常简单，使用 <code>caitou deploy --git</code> 会自动读取本地或者环境中的 git 信息来判断是预览环境还是生产环境，我们目前默认 <code>main</code> 的部署为生产环境部署</p>
 <div class="highlight highlight-source-shell"><pre>caitou deploy --git</pre></div>
+<p>如果需要修改默认 <code>main</code>的可以在<code>caitou.yml</code>中定义</p>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">site</span>: <span class="pl-s">demo</span>
+<span class="pl-ent">production_branch</span>: <span class="pl-s">master</span>
+<span class="pl-ent">public</span>: <span class="pl-s">www</span></pre></div>
 <p>我们以 Github Action 为例，如果你有其他平台的集成，请在讨论区中提出，我们会添加到文档中</p>
 <h3>
 <a id="user-content-github-actions" class="anchor" href="#github-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Github Actions</h3>
@@ -167,7 +171,7 @@
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">name</span>: <span class="pl-s">caitouyun</span>
 <span class="pl-ent">on</span>:
   <span class="pl-ent">push</span>:
-    <span class="pl-ent">branches</span>: <span class="pl-s">[master]</span>
+    <span class="pl-ent">branches</span>: <span class="pl-s">[main]</span>
 <span class="pl-ent">jobs</span>:
   <span class="pl-ent">build</span>:
     <span class="pl-ent">runs-on</span>: <span class="pl-s">ubuntu-latest</span>
