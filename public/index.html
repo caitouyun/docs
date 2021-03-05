@@ -164,17 +164,19 @@
 </ul>
 <h3>
 <a id="user-content-使用-caitouyml-部署" class="anchor" href="#%E4%BD%BF%E7%94%A8-caitouyml-%E9%83%A8%E7%BD%B2" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>使用 <code>caitou.yml</code> 部署</h3>
-<p>自定义域名通过本地文件 <code>[demo/caitou.yml](https://github.com/caitouyun/demo/blob/master/caitou.yml)</code> 来配置，在这之前我们先定义部署网站名 <code>site</code> 和部署目录 <code>www</code></p>
+<p>自定义域名通过本地文件 <a href="https://github.com/caitouyun/demo/blob/master/caitou.yml">demo/caitou.yml</a> 来配置，只需要定义部署网站名 <code>site</code> 和部署目录 <code>www</code></p>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">site</span>: <span class="pl-s">demo</span>
 <span class="pl-ent">public</span>: <span class="pl-s">www</span></pre></div>
 <p>这样在 <code>demo</code> 目录中就可以直接使用 <code>caitou deploy</code> 来部署预览链接以及 <code>caitou deploy --production</code> 部署生产环境</p>
 <h3>
 <a id="user-content-自定义域名" class="anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>自定义域名</h3>
 <p>在设定好<code>caitou.yml</code> 之后可以通过 <code>domains</code> 下的 <code>china</code> 和 <code>global</code> 来分别对大陆镜像和海外镜像绑定自定义域名，两个都是可选配置, 比如</p>
-<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">domains</span>:
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">site</span>: <span class="pl-s">demo</span>
+<span class="pl-ent">public</span>: <span class="pl-s">www</span>
+<span class="pl-ent">domains</span>:
   <span class="pl-ent">china</span>: <span class="pl-s">www.yourwesite.cn</span>
   <span class="pl-ent">global</span>: <span class="pl-s">www.yourwebsite.com</span></pre></div>
-<p>绑定域名目前只支持 CNAME 的模式，比如以上配置就需要在你的域名解析服务商中设置:</p>
+<p>绑定域名目前只支持通过 CNAME 的模式，比如以上配置就需要在你的域名解析服务商中设置:</p>
 <ul>
 <li>将 <a href="http://www.yourwesite.cn" rel="nofollow">www.yourwesite.cn</a> 指向 demo.caitouyun.com</li>
 <li>将 <a href="http://www.yourwesite.com" rel="nofollow">www.yourwesite.com</a> 指向 demo.caitou.org</li>
@@ -183,35 +185,34 @@
 <p>对于自定义域名我们使用 <a href="https://letsencrypt.org/" rel="nofollow">Let's Encrypt</a> 给自定义域名自动配置 SSL 证书</p>
 <h3>
 <a id="user-content-自动跳转-https" class="anchor" href="#%E8%87%AA%E5%8A%A8%E8%B7%B3%E8%BD%AC-https" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>自动跳转 https</h3>
-<p>在 <code>caitou.yml</code> 中 添加 <code>force_ssl: true</code> 之后所有的访问将自动跳转到 https, 比如</p>
+<p>在 <code>caitou.yml</code> 中 添加 <code>force_ssl: true</code> 之后可以将所有的访问都自动跳转到 https, 比如</p>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">site</span>: <span class="pl-s">demo</span>
 <span class="pl-ent">public</span>: <span class="pl-s">www</span>
 <span class="pl-ent">force_ssl</span>: <span class="pl-c1">true</span></pre></div>
 <h3>
 <a id="user-content-单页面应用-single-page-application" class="anchor" href="#%E5%8D%95%E9%A1%B5%E9%9D%A2%E5%BA%94%E7%94%A8-single-page-application" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>单页面应用 (Single Page Application)</h3>
-<p>查看代码 <a href="https://github.com/caitouyun/demo-spa">caitouyun/demo-spa</a></p>
-<p>菜头云支持自定义路由规则，可以很方便的支持单页面应用(Single Page Application), 在 <code>caitou.yml</code> 中添加以下 <code>rewrites</code> 规则就可以将请求重写到 <code>/index.html</code> 来指出前端单页面应用</p>
+<p>单页面是现在非常普遍的前端架构, 查看示例代码 <a href="https://github.com/caitouyun/demo-spa">caitouyun/demo-spa</a></p>
+<p>菜头云支持自定义路由规则，可以很方便的支持单页面应用(Single Page Application), 在 <code>caitou.yml</code> 中添加以下 <code>rewrites</code> 规则就可以将请求重写到 <code>/index.html</code> 来支持前端单页面应用</p>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">rewrites</span>:
   - <span class="pl-ent">source</span>: <span class="pl-s"><span class="pl-pds">'</span>**<span class="pl-pds">'</span></span>
     <span class="pl-ent">destination</span>: <span class="pl-s">/index.html</span></pre></div>
 <p>更多详细的 <code>rewrites</code> 文档正在补充中...</p>
 <h3>
 <a id="user-content-集成环境" class="anchor" href="#%E9%9B%86%E6%88%90%E7%8E%AF%E5%A2%83" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>集成环境</h3>
-<p>将菜头云集成到现有的 git 集成部署环境中也非常容易，使用 <code>caitou deploy --git</code> 会自动读取本地或者集成环境中的 git 信息来判断环境</p>
+<p>将菜头云集成到现有的 git 集成部署环境中也非常容易，使用 <code>caitou deploy --git</code> 会自动读取本地或者集成环境中的 git 信息来生成对应的部署链接</p>
 <ul>
 <li>我们目前默认 <code>main</code> 分支的部署为生产环境部署</li>
-<li>对于其他的分支会自动部署到分支预览网站, 子域名格式为 <code>网站名-git-分支</code>
+<li>对于其他的分支会自动部署到分支预览链接, 子域名格式为 <code>网站名-git-分支</code>
 </li>
 </ul>
 <div class="highlight highlight-source-shell"><pre>caitou deploy --git</pre></div>
-<p>如果需要修改默认的生产环境分支(<code>main</code>)可以在 <code>caitou.yml</code> 中定义, 比如使用 <code>master</code> 分支</p>
+<p>如果需要修改默认的生产环境分支 <code>main</code> 可以在 <code>caitou.yml</code> 中定义, 比如使用 <code>live</code> 作为生产环境分支</p>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">site</span>: <span class="pl-s">demo</span>
-<span class="pl-ent">production_branch</span>: <span class="pl-s">master</span>
+<span class="pl-ent">production_branch</span>: <span class="pl-s">live</span>
 <span class="pl-ent">public</span>: <span class="pl-s">www</span></pre></div>
 <h3>
 <a id="user-content-github-actions" class="anchor" href="#github-actions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Github Actions</h3>
-<p>我们推荐使用官方的 <a href="https://github.com/caitouyun/action">菜头云 Github Action</a>，</p>
-<p>首先需要在项目中添加 <code>CAITOU_TOKEN</code> 环境变量，可以在本地命令行登录之后运行</p>
+<p>我们推荐使用官方的 <a href="https://github.com/caitouyun/action">菜头云 Github Action</a>，首先需要在项目中添加 <code>CAITOU_TOKEN</code> 环境变量，可以在本地命令行登录之后运行</p>
 <div class="highlight highlight-source-shell"><pre>caitou token</pre></div>
 <p>将终端输出的 token 作为 <code>CAITOU_TOKEN</code> 变量复制到 GitHub 项目中</p>
 <p><a href="public/github-caitou-token.png" target="_blank" rel="noopener noreferrer"><img src="public/github-caitou-token.png" alt="" style="max-width:100%;"></a></p>
@@ -230,8 +231,8 @@
           <span class="pl-ent">args</span>: <span class="pl-s">caitou deploy --git</span>
         <span class="pl-ent">env</span>:
           <span class="pl-ent">CAITOU_TOKEN</span>: <span class="pl-s">${{ secrets.CAITOU_TOKEN }}</span></pre></div>
-<p>提交代码之后每一次提交代码都会通过 Github Actions 运行菜头云部署生成一个预览链接，对于 <code>main</code> 分支的提交则会自动部署到生成环境</p>
-<p>如果需要其他的步骤，比如 <code>npm install</code> 也可以在部署之前添加，可以参考 <a href="https://github.com/caitouyun/demo-spa/blob/main/.github/workflows/caitouyun.yml">单页面 demo 的配置</a></p>
+<p>配置成功之后每一次提交代码都会通过 Github Actions 运行部署生成一个预览链接，对于 <code>main</code> 分支的提交则会自动部署到生成环境</p>
+<p>如果需要其他的步骤，比如 <code>npm install</code> 也可以在部署之前添加，可以参考 <a href="https://github.com/caitouyun/demo-spa/blob/main/.github/workflows/caitouyun.yml">单页面示例中的 caitouy.yml 配置</a></p>
 <h2>
 <a id="user-content-常见问题-faq" class="anchor" href="#%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98-faq" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>常见问题 FAQ</h2>
 <h3>
@@ -248,7 +249,7 @@
 <p>目前命令行没有提供这样的功能，但是可以<a href="mailto:contact@swiftcarrot.com">联系我们</a></p>
 <h3>
 <a id="user-content-网站有没有-cdn-加速" class="anchor" href="#%E7%BD%91%E7%AB%99%E6%9C%89%E6%B2%A1%E6%9C%89-cdn-%E5%8A%A0%E9%80%9F" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>网站有没有 CDN 加速?</h3>
-<p>目前没有 CDN 加速集成，但是你依旧可以通过我们的子域名对接到其他 CDN，我们之后会添加 CDN 的自动集成</p>
+<p>目前没有 CDN 加速集成，但是网站拥有者依旧可以通过我们的子域名对接到其他 CDN，我们之后也会添加 CDN 的自动集成</p>
 <h3>
 <a id="user-content-如何支持不带子域名的自定义域名-apex-domain" class="anchor" href="#%E5%A6%82%E4%BD%95%E6%94%AF%E6%8C%81%E4%B8%8D%E5%B8%A6%E5%AD%90%E5%9F%9F%E5%90%8D%E7%9A%84%E8%87%AA%E5%AE%9A%E4%B9%89%E5%9F%9F%E5%90%8D-apex-domain" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>如何支持不带子域名的自定义域名 (Apex Domain)?</h3>
 <p>目前没有提供这方面的功能，但是可以<a href="mailto:contact@swiftcarrot.com">联系我们</a>帮助添加</p>
@@ -256,7 +257,7 @@
 <a id="user-content-菜头云和-github-pages-有什么区别" class="anchor" href="#%E8%8F%9C%E5%A4%B4%E4%BA%91%E5%92%8C-github-pages-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>菜头云和 GitHub Pages 有什么区别?</h3>
 <ul>
 <li>菜头云支持多次部署多次预览的功能, 并不需要你将文件上传到 git 目录或者某个分支</li>
-<li>Github Pages 免费用户不能使用私有项目部署， 菜头云甚至不要求有一个 git 项目，只需要有一个目录就能部署</li>
+<li>Github Pages 免费用户不能使用私有项目部署， 菜头云只需要有一个目录就能部署，不需要 git 项目</li>
 <li>菜头云提供了大陆和海外两个镜像，并且提供了 <code>rewrites</code> 等高级配置功能</li>
 </ul>
 

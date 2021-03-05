@@ -138,7 +138,7 @@ caitou deploy --site demo --public www --production
 
 ### 使用 `caitou.yml` 部署
 
-自定义域名通过本地文件 `[demo/caitou.yml](https://github.com/caitouyun/demo/blob/master/caitou.yml)` 来配置，在这之前我们先定义部署网站名 `site` 和部署目录 `www`
+自定义域名通过本地文件 [demo/caitou.yml](https://github.com/caitouyun/demo/blob/master/caitou.yml) 来配置，只需要定义部署网站名 `site` 和部署目录 `www`
 
 ```yaml
 site: demo
@@ -152,12 +152,14 @@ public: www
 在设定好`caitou.yml` 之后可以通过 `domains` 下的 `china` 和 `global` 来分别对大陆镜像和海外镜像绑定自定义域名，两个都是可选配置, 比如
 
 ```yaml
+site: demo
+public: www
 domains:
   china: www.yourwesite.cn
   global: www.yourwebsite.com
 ```
 
-绑定域名目前只支持 CNAME 的模式，比如以上配置就需要在你的域名解析服务商中设置:
+绑定域名目前只支持通过 CNAME 的模式，比如以上配置就需要在你的域名解析服务商中设置:
 
 - 将 www.yourwesite.cn 指向 demo.caitouyun.com
 - 将 www.yourwesite.com 指向 demo.caitou.org
@@ -168,7 +170,7 @@ domains:
 
 ### 自动跳转 https
 
-在 `caitou.yml` 中 添加 `force_ssl: true` 之后所有的访问将自动跳转到 https, 比如
+在 `caitou.yml` 中 添加 `force_ssl: true` 之后可以将所有的访问都自动跳转到 https, 比如
 
 ```yaml
 site: demo
@@ -178,9 +180,9 @@ force_ssl: true
 
 ### 单页面应用 (Single Page Application)
 
-查看代码 [caitouyun/demo-spa](https://github.com/caitouyun/demo-spa)
+单页面是现在非常普遍的前端架构, 查看示例代码 [caitouyun/demo-spa](https://github.com/caitouyun/demo-spa)
 
-菜头云支持自定义路由规则，可以很方便的支持单页面应用(Single Page Application), 在 `caitou.yml` 中添加以下 `rewrites` 规则就可以将请求重写到 `/index.html` 来指出前端单页面应用
+菜头云支持自定义路由规则，可以很方便的支持单页面应用(Single Page Application), 在 `caitou.yml` 中添加以下 `rewrites` 规则就可以将请求重写到 `/index.html` 来支持前端单页面应用
 
 ```yaml
 rewrites:
@@ -192,28 +194,26 @@ rewrites:
 
 ### 集成环境
 
-将菜头云集成到现有的 git 集成部署环境中也非常容易，使用 `caitou deploy --git` 会自动读取本地或者集成环境中的 git 信息来判断环境
+将菜头云集成到现有的 git 集成部署环境中也非常容易，使用 `caitou deploy --git` 会自动读取本地或者集成环境中的 git 信息来生成对应的部署链接
 
 - 我们目前默认 `main` 分支的部署为生产环境部署
-- 对于其他的分支会自动部署到分支预览网站, 子域名格式为 `网站名-git-分支`
+- 对于其他的分支会自动部署到分支预览链接, 子域名格式为 `网站名-git-分支`
 
 ```sh
 caitou deploy --git
 ```
 
-如果需要修改默认的生产环境分支(`main`)可以在 `caitou.yml` 中定义, 比如使用 `master` 分支
+如果需要修改默认的生产环境分支 `main` 可以在 `caitou.yml` 中定义, 比如使用 `live` 作为生产环境分支
 
 ```yaml
 site: demo
-production_branch: master
+production_branch: live
 public: www
 ```
 
 ### Github Actions
 
-我们推荐使用官方的 [菜头云 Github Action](https://github.com/caitouyun/action)，
-
-首先需要在项目中添加 `CAITOU_TOKEN` 环境变量，可以在本地命令行登录之后运行
+我们推荐使用官方的 [菜头云 Github Action](https://github.com/caitouyun/action)，首先需要在项目中添加 `CAITOU_TOKEN` 环境变量，可以在本地命令行登录之后运行
 
 ```sh
 caitou token
@@ -242,9 +242,9 @@ jobs:
           CAITOU_TOKEN: ${{ secrets.CAITOU_TOKEN }}
 ```
 
-提交代码之后每一次提交代码都会通过 Github Actions 运行菜头云部署生成一个预览链接，对于 `main` 分支的提交则会自动部署到生成环境
+配置成功之后每一次提交代码都会通过 Github Actions 运行部署生成一个预览链接，对于 `main` 分支的提交则会自动部署到生成环境
 
-如果需要其他的步骤，比如 `npm install` 也可以在部署之前添加，可以参考 [单页面 demo 的配置](https://github.com/caitouyun/demo-spa/blob/main/.github/workflows/caitouyun.yml)
+如果需要其他的步骤，比如 `npm install` 也可以在部署之前添加，可以参考 [单页面示例中的 caitouy.yml 配置](https://github.com/caitouyun/demo-spa/blob/main/.github/workflows/caitouyun.yml)
 
 ## 常见问题 FAQ
 
@@ -266,7 +266,7 @@ jobs:
 
 ### 网站有没有 CDN 加速?
 
-目前没有 CDN 加速集成，但是你依旧可以通过我们的子域名对接到其他 CDN，我们之后会添加 CDN 的自动集成
+目前没有 CDN 加速集成，但是网站拥有者依旧可以通过我们的子域名对接到其他 CDN，我们之后也会添加 CDN 的自动集成
 
 ### 如何支持不带子域名的自定义域名 (Apex Domain)?
 
@@ -275,5 +275,5 @@ jobs:
 ### 菜头云和 GitHub Pages 有什么区别?
 
 - 菜头云支持多次部署多次预览的功能, 并不需要你将文件上传到 git 目录或者某个分支
-- Github Pages 免费用户不能使用私有项目部署， 菜头云甚至不要求有一个 git 项目，只需要有一个目录就能部署
+- Github Pages 免费用户不能使用私有项目部署， 菜头云只需要有一个目录就能部署，不需要 git 项目
 - 菜头云提供了大陆和海外两个镜像，并且提供了 `rewrites` 等高级配置功能
