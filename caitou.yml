@@ -1,4 +1,5 @@
 site: www
+production_branch: master
 public: public
 force_ssl: true
 domains:
