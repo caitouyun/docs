@@ -4,8 +4,8 @@
 
 - 一个命令上线网站
 - 多版本线上预览, 支持 git 集成
-- 自动配置 HTTPS 证书
-- 中国大陆和海外两个节点部署
+- 自定义域名和自动配置 HTTPS 证书
+- 中国大陆和海外两个节点同时部署
 
 ## 目录
 
@@ -35,9 +35,9 @@
 ## 联系反馈
 
 - [通过邮箱直接联系我们](mailto:contact@swiftcarrot.com)
-- [编辑文档请点击](https://github.com/caitouyun/docs/edit/master/README.md)
-- [如果在使用中遇到问题请前往提交 issue](https://github.com/caitouyun/docs/issues)
-- [相关功能讨论请点击前往讨论区](https://github.com/caitouyun/docs/discussions)
+- [帮助我们编辑文档](https://github.com/caitouyun/docs/edit/master/README.md)
+- [使用中遇到问题提交 issue](https://github.com/caitouyun/docs/issues)
+- [相关功能讨论参与讨论](https://github.com/caitouyun/docs/discussions)
 
 ## 安装命令行工具
 
@@ -167,6 +167,8 @@ force_ssl: true
 ```
 
 ### 单页面应用 (Single Page Application)
+
+[demo](https://github.com/caitouyun/demo-spa)
 
 菜头云支持自定义路由规则，可以很方面的支持单页面应用(Single Page Application),在`caitou.yml`中添加以下`rewrites`规则就可以将请求重写到 `/index.html` 来指出前端单页面应用
 
