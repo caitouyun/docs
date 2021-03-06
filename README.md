@@ -9,6 +9,7 @@
 - 多版本线上预览, 支持 git 集成
 - 自定义域名和自动配置 HTTPS 证书
 - 中国大陆和海外两个节点同时部署
+- [点击播放介绍视频](https://www.bilibili.com/video/BV1tV411v7Gp)
 
 ## 目录
 
