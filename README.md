@@ -1,5 +1,8 @@
 # 菜头云
 
+<a href="https://www.bilibili.com/video/BV1tV411v7Gp" target="_blank" rel="noopener noreferrer nofollow"><img align="right" height="200" src="public/video.png">
+</a>
+
 菜头云 (https://caitouyun.com) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务
 
 - 一个命令上线网站
