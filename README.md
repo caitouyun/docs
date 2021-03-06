@@ -1,6 +1,6 @@
 # 菜头云
 
-<a href="https://www.bilibili.com/video/BV1tV411v7Gp" target="_blank" rel="noopener noreferrer nofollow"><img align="right" height="200" src="public/video.png">
+<a href="https://www.bilibili.com/video/BV1tV411v7Gp" target="_blank" rel="noopener noreferrer nofollow"><img align="right" height="200" src="assets/video.png">
 </a>
 
 菜头云 (https://caitouyun.com) 是一个简单的帮助开发者快速迭代和部署前端静态网站的服务
@@ -225,7 +225,7 @@ caitou token
 
 将终端输出的 token 作为 `CAITOU_TOKEN` 变量复制到 GitHub 项目中
 
-![](public/github-caitou-token.png)
+![](assets/github-caitou-token.png)
 
 创建目录 `.github/workflows` 并添加一个 `caitouyun.yaml` 文件
 
