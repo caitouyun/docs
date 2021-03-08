@@ -276,6 +276,10 @@ jobs:
 
 目前没有提供这方面的功能，但是可以[联系我们](mailto:contact@swiftcarrot.com)帮助添加
 
+### 如何绑定自定义域名到预览链接?
+
+目前没有提供这方面的功能，但是可以[联系我们](mailto:contact@swiftcarrot.com)合作添加
+
 ### 菜头云和 GitHub Pages 有什么区别?
 
 - 菜头云支持多次部署多次预览的功能, 并不需要你将文件上传到 git 目录或者某个分支
