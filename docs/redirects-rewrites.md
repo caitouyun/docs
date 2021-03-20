@@ -4,7 +4,7 @@
 
 ```yaml
 rewrites:
-  - source: '**'
+  - source: /*
     destination: /index.html
 ```
 

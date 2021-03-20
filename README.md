@@ -190,7 +190,7 @@ force_ssl: true
 
 ```yaml
 rewrites:
-  - source: '**'
+  - source: /*
     destination: /index.html
 ```
 

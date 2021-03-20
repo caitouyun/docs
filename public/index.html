@@ -197,7 +197,7 @@
 <p>单页面是现在非常普遍的前端架构, 查看示例代码 <a href="https://github.com/caitouyun/demo-spa">caitouyun/demo-spa</a></p>
 <p>菜头云支持自定义路由规则，可以很方便的支持单页面应用(Single Page Application), 在 <code>caitou.yml</code> 中添加以下 <code>rewrites</code> 规则就可以将请求重写到 <code>/index.html</code> 来支持前端单页面应用</p>
 <div class="highlight highlight-source-yaml"><pre><span class="pl-ent">rewrites</span>:
-  - <span class="pl-ent">source</span>: <span class="pl-s"><span class="pl-pds">'</span>**<span class="pl-pds">'</span></span>
+  - <span class="pl-ent">source</span>: <span class="pl-s">/*</span>
     <span class="pl-ent">destination</span>: <span class="pl-s">/index.html</span></pre></div>
 <p>更多详细的 <code>rewrites</code> 文档正在补充中...</p>
 <h3>
