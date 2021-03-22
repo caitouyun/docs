@@ -194,7 +194,7 @@ rewrites:
     destination: /index.html
 ```
 
-更多详细的 `rewrites` 文档正在补充中...
+更多详细的 `rewrites` 文档请查看[Redirects Rewrites](https://github.com/caitouyun/docs/blob/master/docs/redirects-rewrites.md)
 
 ### 集成环境
 
