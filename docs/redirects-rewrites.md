@@ -68,7 +68,7 @@ rewrites:
     destination: /index.html
 ```
 
-## 避免 API 跨域问题
+### 避免 API 跨域问题
 
 将外部服务器链接重写到本地路径来避免浏览器前端跨域不可访问
 
