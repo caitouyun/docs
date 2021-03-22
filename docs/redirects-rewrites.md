@@ -12,15 +12,24 @@
 
 ## 规则定义
 
-无论是`rewrites`还是`redirects`都是 `source` 和 `destination` 的数组, source 必须为`/`开始的路径, 可以使用 `*` 来匹配任意的字符, 在`destination` 中可以使用 `$1`, `$2` 等来表示匹配的第几段字符。
+无论是`rewrites`还是`redirects`都是 `source` 和 `destination` 的数组, `source` 必须为`/`开始的路径, 可以使用 `*` 来匹配任意的字符, 在`destination` 中可以使用 `$1`, `$2` 等来表示匹配的第几段字符。
 
-| source     | destination                  | 作用                                             |
+| source     | destination                  | 效果                                             |
 | ---------- | ---------------------------- | ------------------------------------------------ |
 | `/old`     | `/new`                       | `/old` → `/new`                                  |
 | `/api/*`   | `https://api.example.com/$1` | `/api/health` → `https://api.example.com/health` |
 | `/a/*/b/*` | `/ab/$1/$2`                  | `/a/1/b/2` → `/ab/1/2`                           |
 
-在`redirects`中的规则，可以通过设置 `type` 来设置 HTTP 的跳转状态码，支持以下状态码:
+在`redirects`中的规则，可以通过设置 `type` 来设置 HTTP 的跳转状态码, 比如
+
+```yaml
+redirects:
+  - source: /old
+    destination: /new
+    type: 307
+```
+
+支持以下状态码:
 
 - 永久跳转
   - 301 (默认)
