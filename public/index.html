@@ -276,5 +276,13 @@
               粤ICP备20013360号-1
             </a>
       </footer>
+      <script>
+function jump() {
+var el = document.getElementById('user-content-'+decodeURIComponent(location.hash.substr(1)))
+if (el) window.scrollTo(0, el.offsetTop-10)
+}
+jump();
+window.onhashchange = jump;
+      </script>
 </body>
 </html>

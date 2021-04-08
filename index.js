@@ -3,12 +3,12 @@ const path = require('path');
 const { Octokit } = require('@octokit/core');
 
 const text = fs.readFileSync(path.join(__dirname, 'README.md'), {
-  encoding: 'utf8',
+  encoding: 'utf8'
 });
 
 const octokit = new Octokit();
 
-octokit.request('POST /markdown', { text }).then((resp) => {
+octokit.request('POST /markdown', { text }).then(resp => {
   const html = `
 <!doctype html>
 <html lang="zh">
@@ -33,6 +33,14 @@ ${resp.data}
               粤ICP备20013360号-1
             </a>
       `}</footer>
+      <script>
+function jump() {
+var el = document.getElementById('user-content-'+decodeURIComponent(location.hash.substr(1)))
+if (el) window.scrollTo(0, el.offsetTop-10)
+}
+jump();
+window.onhashchange = jump;
+      </script>
 </body>
 </html>`;
 

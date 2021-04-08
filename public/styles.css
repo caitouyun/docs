@@ -1,8 +1,16 @@
+main,
 footer {
-  font-size: 12px;
+  max-width: 100%;
+  width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+footer {
+  font-size: 13px !important;
   text-align: left;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 .markdown-body .octicon {
